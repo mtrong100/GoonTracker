@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.jpg" type="image/x-icon" />
+    <title>Goon Tracker</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>⏳ Goon Tracker</h1>
+    </header>
+
+    <main>
+      <div class="counter-box">
+        <p>Time started from:</p>
+        <h2 id="beginDateDisplay"></h2>
+
+        <p class="label">Current Time</p>
+        <h2 id="currentTime"></h2>
+
+        <p class="label">Time passed:</p>
+        <h3 id="daysGone"></h3>
+      </div>
+
+      <!-- Table hiển thị dữ liệu JSON -->
+      <div class="data-table">
+        <h2>Goon History</h2>
+        <table id="jsonTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Time</th>
+              <th>Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Dữ liệu sẽ được chèn ở đây -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+
+    <footer>
+      <p>© 2025 Goon Tracker</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

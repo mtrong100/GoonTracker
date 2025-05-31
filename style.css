@@ -1,0 +1,135 @@
+/* Dark theme with modern style */
+
+:root {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --accent-color: #03dac6;
+  --font-main: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header,
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #1f1f1f;
+}
+
+h1 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+
+.counter-box {
+  text-align: center;
+  background: #1e1e1e;
+  padding: 3rem 4rem;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(3, 218, 198, 0.3);
+  max-width: 500px;
+  width: 100%;
+}
+
+.counter-box .label {
+  font-size: 1.6rem;
+  color: var(--secondary-color);
+  margin: 1rem 0 0.5rem;
+}
+
+.counter-box h2 {
+  color: var(--accent-color);
+  font-size: 2.2rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.counter-box h3 {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin-top: 0.5rem;
+}
+
+.data-table {
+  margin-top: 3rem;
+  text-align: center;
+  width: 100%;
+}
+
+.data-table h2 {
+  color: var(--accent-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.data-table table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background: #1e1e1e;
+  color: #f0f0f0;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(3, 218, 198, 0.2);
+}
+
+.data-table th,
+.data-table td {
+  border: 1px solid #333;
+  padding: 0.75rem;
+}
+
+.data-table th {
+  background: #272727;
+  color: var(--primary-color);
+}
+
+.data-table tr:nth-child(even) {
+  background-color: #2a2a2a;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+
+  .counter-box {
+    padding: 2rem;
+  }
+
+  .counter-box .label {
+    font-size: 1.3rem;
+  }
+
+  .counter-box h2 {
+    font-size: 1.6rem;
+  }
+
+  .counter-box h3 {
+    font-size: 1.5rem;
+  }
+}
