@@ -27,6 +27,44 @@
       <!-- Table hiển thị dữ liệu JSON -->
       <div class="data-table">
         <h2>Goon History</h2>
+
+        <div class="filters">
+          <div class="filter-group">
+            <p id="totalAttempts"><strong>Total attempts:</strong> 0</p>
+          </div>
+
+          <div class="filter-group">
+            <label for="filterDate">Date:</label>
+            <input type="text" id="filterDate" placeholder="dd/mm/yyyy" />
+          </div>
+
+          <div class="filter-group">
+            <label for="filterMonth">Month:</label>
+            <input
+              type="number"
+              id="filterMonth"
+              min="1"
+              max="12"
+              placeholder="MM"
+            />
+          </div>
+
+          <div class="filter-group">
+            <label for="filterYear">Year:</label>
+            <input type="number" id="filterYear" placeholder="YYYY" />
+          </div>
+
+          <div class="filter-group">
+            <label for="filterDuration">Duration:</label>
+            <input type="text" id="filterDuration" placeholder="e.g. 1 day" />
+          </div>
+
+          <div class="filter-buttons">
+            <button onclick="applyFilters()">Apply</button>
+            <button onclick="resetFilters()">Reset</button>
+          </div>
+        </div>
+
         <table id="jsonTable">
           <thead>
             <tr>
