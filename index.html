@@ -1,87 +1,259 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.jpg" type="image/x-icon" />
-    <title>Goon Tracker</title>
+    <title>Goon Tracker - Modern Time Tracking Tool</title>
+    <link rel="icon" href="favicon.png" type="image/x-icon" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Enhanced SEO Meta Tags -->
+    <meta
+      name="description"
+      content="Goon Tracker is a sleek, modern time tracking tool with advanced filtering and visualization features. Perfect for productivity tracking and habit monitoring."
+    />
+    <meta
+      name="keywords"
+      content="time tracker, productivity tool, habit tracker, time management, analytics, JSON viewer"
+    />
+    <meta name="author" content="Goon Tracker Team" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#4f46e5" />
+
+    <!-- Open Graph / Social Media -->
+    <meta
+      property="og:title"
+      content="Goon Tracker - Modern Time Tracking Tool"
+    />
+    <meta
+      property="og:description"
+      content="Track, analyze and visualize your time with this modern tracking tool."
+    />
+    <meta
+      property="og:image"
+      content="https://ih1.redbubble.net/image.4746540696.0260/raf,360x360,075,t,fafafa:ca443f4786.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://mtrong100.github.io/GoonTracker/"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Goon Tracker" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Goon Tracker - Modern Time Tracking Tool"
+    />
+    <meta
+      name="twitter:description"
+      content="Track, analyze and visualize your time with this modern tracking tool."
+    />
+    <meta
+      name="twitter:image"
+      content="https://ih1.redbubble.net/image.4746540696.0260/raf,360x360,075,t,fafafa:ca443f4786.jpg"
+    />
+    <meta name="twitter:site" content="@goontracker" />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://mtrong100.github.io/GoonTracker/" />
   </head>
   <body>
-    <header>
-      <h1>⏳ Goon Tracker</h1>
+    <header class="fade-in">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-clock"></i>
+          <h1>Goon Tracker</h1>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-secondary" id="exportBtn">
+            <i class="fas fa-download"></i> Export
+          </button>
+        </div>
+      </div>
     </header>
 
     <main>
-      <div class="counter-box">
-        <p>Time started from:</p>
-        <h2 id="beginDateDisplay"></h2>
-
-        <p class="label">Current Time</p>
-        <h2 id="currentTime"></h2>
-
-        <p class="label">Time passed:</p>
-        <h3 id="daysGone"></h3>
-      </div>
-
-      <!-- Table hiển thị dữ liệu JSON -->
-      <div class="data-table">
-        <h2>Goon History</h2>
-
-        <div class="filters">
-          <div class="filter-group">
-            <p id="totalAttempts"><strong>Total attempts:</strong> 0</p>
+      <section class="dashboard-section">
+        <div class="counter-box slide-up">
+          <div class="counter-header">
+            <h2>Time Tracking Dashboard</h2>
+            <div class="counter-badge">
+              <span id="statusIndicator" class="active">Active</span>
+            </div>
           </div>
 
-          <div class="filter-group">
-            <label for="filterDate">Date:</label>
-            <input type="text" id="filterDate" placeholder="dd/mm/yyyy" />
-          </div>
+          <div class="counter-grid">
+            <div class="counter-card">
+              <div class="counter-label">
+                <i class="fas fa-calendar-day"></i>
+                <span>Started from</span>
+              </div>
+              <div id="beginDateDisplay" class="counter-value"></div>
+            </div>
 
-          <div class="filter-group">
-            <label for="filterMonth">Month:</label>
-            <input
-              type="number"
-              id="filterMonth"
-              min="1"
-              max="12"
-              placeholder="MM"
-            />
-          </div>
+            <div class="counter-card">
+              <div class="counter-label">
+                <i class="fas fa-clock"></i>
+                <span>Current Time</span>
+              </div>
+              <div id="currentTime" class="counter-value"></div>
+            </div>
 
-          <div class="filter-group">
-            <label for="filterYear">Year:</label>
-            <input type="number" id="filterYear" placeholder="YYYY" />
+            <div class="counter-card highlight">
+              <div class="counter-label">
+                <i class="fas fa-hourglass-half"></i>
+                <span>Time Passed</span>
+              </div>
+              <div id="daysGone" class="counter-value"></div>
+            </div>
           </div>
+        </div>
+      </section>
 
-          <div class="filter-group">
-            <label for="filterDuration">Duration:</label>
-            <input type="text" id="filterDuration" placeholder="e.g. 1 day" />
-          </div>
-
-          <div class="filter-buttons">
-            <button onclick="applyFilters()">Apply</button>
-            <button onclick="resetFilters()">Reset</button>
+      <section class="data-section fade-in">
+        <div class="section-header">
+          <h2><i class="fas fa-history"></i> Tracking History</h2>
+          <div class="section-actions">
+            <button class="btn btn-icon" id="refreshBtn" title="Refresh data">
+              <i class="fas fa-sync-alt"></i>
+            </button>
           </div>
         </div>
 
-        <table id="jsonTable">
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Duration</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Dữ liệu sẽ được chèn ở đây -->
-          </tbody>
-        </table>
-      </div>
+        <div class="filters-container">
+          <div class="filters">
+            <div class="filter-group">
+              <label for="filterDate">
+                <i class="fas fa-calendar-alt"></i> Date
+              </label>
+              <input type="text" id="filterDate" placeholder="dd/mm/yyyy" />
+            </div>
+
+            <div class="filter-group">
+              <label for="filterMonth">
+                <i class="fas fa-calendar"></i> Month
+              </label>
+              <select id="filterMonth">
+                <option value="">All Months</option>
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+              </select>
+            </div>
+
+            <div class="filter-group">
+              <label for="filterYear">
+                <i class="fas fa-calendar-check"></i> Year
+              </label>
+              <input
+                type="number"
+                id="filterYear"
+                placeholder="YYYY"
+                min="2000"
+                max="2030"
+              />
+            </div>
+
+            <div class="filter-group">
+              <label for="filterDuration">
+                <i class="fas fa-hourglass"></i> Duration
+              </label>
+              <input type="text" id="filterDuration" placeholder="e.g. 1 day" />
+            </div>
+
+            <div class="filter-actions">
+              <button class="btn btn-primary" onclick="applyFilters()">
+                <i class="fas fa-filter"></i> Apply
+              </button>
+              <button class="btn btn-outline" onclick="resetFilters()">
+                <i class="fas fa-broom"></i> Reset
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-summary">
+          <div class="stat-card">
+            <div class="stat-value" id="totalAttempts">0</div>
+            <div class="stat-label">Total Attempts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="averageDuration">-</div>
+            <div class="stat-label">Avg Duration</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="lastRecord">-</div>
+            <div class="stat-label">Last Record</div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <table id="jsonTable">
+            <thead>
+              <tr>
+                <th><i class="fas fa-calendar"></i> Date</th>
+                <th><i class="fas fa-clock"></i> Time</th>
+                <th><i class="fas fa-hourglass-end"></i> Duration</th>
+                <th><i class="fas fa-chart-line"></i> Progress</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="btn btn-outline" id="prevPage">
+            <i class="fas fa-chevron-left"></i> Previous
+          </button>
+          <span id="pageInfo">Page 1 of 1</span>
+          <button class="btn btn-outline" id="nextPage">
+            Next <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </section>
     </main>
 
     <footer>
-      <p>© 2025 Goon Tracker</p>
+      <div class="footer-content">
+        <div class="footer-logo">
+          <i class="fas fa-clock"></i>
+          <span>Goon Tracker</span>
+        </div>
+        <div class="footer-links">
+          <a href="#"><i class="fas fa-question-circle"></i> Help</a>
+          <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+          <a href="#"><i class="fas fa-envelope"></i> Contact</a>
+        </div>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-discord"></i></a>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>© 2025 Goon Tracker. All rights reserved.</p>
+      </div>
     </footer>
 
     <script src="script.js"></script>
