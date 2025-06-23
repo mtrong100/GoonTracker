@@ -49,5 +49,7 @@
   { "date": "04/03/2025", "time": "", "daysGoneBy": "1 day" },
   { "date": "09/03/2025", "time": "", "daysGoneBy": "5 days" },
   { "date": "13/03/2025", "time": "", "daysGoneBy": "4 days" },
-  { "date": "02/05/2025", "time": "08:30", "daysGoneBy": "6 days" }
+  { "date": "02/05/2025", "time": "08:30", "daysGoneBy": "6 days" },
+  { "date": "21/06/2025", "time": "21:30", "daysGoneBy": "22 days" },
+  { "date": "22/06/2025", "time": "20:30", "daysGoneBy": "1 day" }
 ]
