@@ -11,7 +11,7 @@
 // ===== CONFIGURATION =====
 const CONFIG = {
   // Start date for tracking
-  BEGIN_DATE: "25/07/2025 20:35",
+  BEGIN_DATE: "26/08/2025 12:35",
 
   // Pagination settings
   ITEMS_PER_PAGE: 10,
